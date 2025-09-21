@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Use CDN for faster loading instead of local file -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      /* Efficient custom scrollbar hiding */
+      .select-no-scrollbar {
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+      }
+      .select-no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+
+      /* Custom colors for Tailwind CDN */
+      .bg-gradient-custom {
+        background: linear-gradient(to bottom, #e8eafe, #d7d8fe, #9395b8);
+      }
+
+      .bg-input {
+        background-color: #f0f0fe;
+        border: 1px solid #d7d8fe;
+      }
+    </style>
+  </head>
+  <body>
+    <section
+      class="bg-gradient-custom h-screen flex items-center justify-center"
+    >
+      <div
+        class="w-full max-w-md md:max-w-5xl mx-4 p-6 flex flex-col bg-white rounded-3xl shadow-lg"
+      >
+        <!-- Header -->
+        <div class="flex justify-between items-center pb-6 gap-4">
+          <div class="flex items-center gap-3">
+            <div class="p-4 bg-blue-600 rounded-2xl text-white">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z"
+                />
+              </svg>
+            </div>
+            <h1 class="text-xl md:text-4xl font-bold text-gray-800">
+              AI Image Generator
+            </h1>
+          </div>
+          <button
+            class="p-2 px-4 bg-[#f0f0fe] rounded-xl hover:bg-blue-100 transition-colors"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="size-5 text-shadow-blue-950"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"
+              />
+            </svg>
+          </button>
+        </div>
+
+        <form class="space-y-4">
+          <!-- Textarea -->
+          <div>
+            <textarea
+              name="prompt"
+              id="prompt"
+              placeholder="Enter your prompt here..."
+              class="w-full h-24 md:h-32 p-4 text-lg bg-input rounded-2xl resize-none focus:outline-none focus:ring-2 focus:ring-blue-200 transition-all select-no-scrollbar"
+              required
+              autofocus
+            ></textarea>
+          </div>
+          <div class="md:flex md:justify-between">
+            <div
+              class="flex flex-col md:flex-row md:justify-between gap-4 pb-4 md:pb-0"
+            >
+              <!-- Model Select -->
+              <div class="space-y-2">
+                <select
+                  name="engine"
+                  id="engine"
+                  class="w-full px-4 py-3 text-lg bg-input rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-200"
+                >
+                  <option value="" disabled selected>Select Model</option>
+                  <option value="dall-e-2">DALL·E 2</option>
+                  <option value="dall-e-3">DALL·E 3</option>
+                  <option value="stable-diffusion-v1">
+                    Stable Diffusion v1
+                  </option>
+                  <option value="stable-diffusion-v2">
+                    Stable Diffusion v2
+                  </option>
+                  <option value="midjourney">Midjourney</option>
+                </select>
+              </div>
+
+              <!-- Image Count Select -->
+              <div class="space-y-2">
+                <select
+                  name="image-count"
+                  id="image-count"
+                  class="w-full px-4 py-3 text-lg bg-input rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-200"
+                >
+                  <option value="" disabled selected>Select Count</option>
+                  <option value="1">1 Image</option>
+                  <option value="2">2 Images</option>
+                  <option value="3">3 Images</option>
+                  <option value="4">4 Images</option>
+                </select>
+              </div>
+
+              <!-- Ratio Select -->
+              <div class="space-y-2">
+                <select
+                  name="ratio"
+                  id="image-ratio"
+                  class="w-full px-4 py-3 text-lg bg-input rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-200"
+                >
+                  <option value="" disabled selected>Select Ratio</option>
+                  <option value="1:1">Square (1:1)</option>
+                  <option value="16:9">Landscape (16:9)</option>
+                  <option value="4:3">Portrait (4:3)</option>
+                </select>
+              </div>
+            </div>
+            <!-- Submit Button -->
+            <button
+              type="submit"
+              class="w-full md:w-auto bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-2xl transition-all duration-200 transform active:scale-[0.98]"
+            >
+              <i class="fas fa-magic mr-2"></i>
+              Generate Images
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </body>
+</html>
