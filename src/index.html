@@ -22,7 +22,13 @@
 
       /* Custom colors for Tailwind CDN */
       .bg-gradient-custom {
-        background: linear-gradient(to bottom, #e8eafe, #d7d8fe, #9395b8);
+        background: linear-gradient(to bottom, #e8eafe, #d7d8fe, #9395b8) !important;
+      }
+      .bg-gradient-custom-night {
+        background: linear-gradient(to bottom, #38043A, #245874, #0BB8BB) !important;
+      }
+      .bg-black {
+        background: black !important;
       }
 
       .bg-input {
@@ -82,7 +88,7 @@
           </button>
         </div>
 
-        <form class="space-y-4">
+        <form class="space-y-4" id="promt-form">
           <!-- Textarea -->
           <div>
             <textarea
@@ -168,10 +174,10 @@
         </form>
 
         <div class="pt-8">
-          <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+          <div class=" grid grid-cols-1 md:grid-cols-4 gap-4 imageGrid" >
             <!-- Generated Image 1 -->
             <div
-              class="relative w-full h-48 overflow-hidden bg-[#f0f1ff] rounded-2xl group cursor-pointer"
+              class="relative w-full h-48 overflow-hidden bg-[#f0f1ff] rounded-2xl group cursor-pointer hidden imageGrid"
             >
               <div
                 role="status"
@@ -214,7 +220,7 @@
 
             <!-- Generated Image 2 -->
             <div
-              class="relative w-full h-48 overflow-hidden bg-[#f0f1ff] rounded-2xl group cursor-pointer"
+              class="relative w-full h-48 overflow-hidden bg-[#f0f1ff] rounded-2xl group cursor-pointer hidden imageGrid"
             >
               <div
                 role="status"
@@ -257,7 +263,7 @@
 
             <!-- Generated Image 3 -->
             <div
-              class="relative w-full h-48 overflow-hidden bg-[#f0f1ff] rounded-2xl group cursor-pointer"
+              class="relative w-full h-48 overflow-hidden bg-[#f0f1ff] rounded-2xl group cursor-pointer hidden imageGrid"
             >
               <div
                 role="status"
@@ -300,7 +306,7 @@
 
             <!-- Generated Image 4 -->
             <div
-              class="relative w-full h-48 overflow-hidden bg-[#f0f1ff] rounded-2xl group cursor-pointer"
+              class="relative w-full h-48 overflow-hidden bg-[#f0f1ff] rounded-2xl group cursor-pointer hidden imageGrid"
             >
               <div
                 role="status"
