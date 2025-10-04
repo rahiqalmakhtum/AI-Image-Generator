@@ -3,7 +3,8 @@ const toggleNightMode = document.getElementById("toggleNight");
 const mainSection = document.querySelector("section.bg-gradient-custom");
 const promtForm = document.getElementById("promt-form");
 const imageGrid = document.querySelectorAll(".imageGrid");
-const imageCount = document.getElementById("image-count")
+const imageCount = document.getElementById("image-count");
+
 
 toggleNightMode.addEventListener("click", function() {
 console.log("Toggle clicked!");
@@ -39,8 +40,12 @@ function renderImage(count){
 }
 
 promtForm.addEventListener("submit", (e) => {
-   e.preventDefault();
+    e.preventDefault();
     const count = parseInt(imageCount.value);
+    const promptText = document.getElementById("prompt").value;
+    const model = document.getElementById("engine").value;
+    const ratio = document.getElementById("image-ratio").value;
+    console.log(promptText, model, count, ratio);
     if(!count) return; // do nothing if not selected
     renderImage(count);
 })
